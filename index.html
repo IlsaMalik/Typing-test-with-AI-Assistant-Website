@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeMaster - AI-Powered Typing Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-keyboard"></i>
+            <h1>TypeMaster</h1>
+        </div>
+        <nav>
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="typing-container">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span id="wpm">0</span>
+                        <p>WPM</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="accuracy">100%</span>
+                        <p>Accuracy</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="time">60</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+
+                <div class="typing-area">
+                    <div id="text-display" class="text-display"></div>
+                    <textarea id="input-field" class="input-field" placeholder="Start typing when ready..." spellcheck="false"></textarea>
+                </div>
+
+                <div class="controls">
+                    <button id="start-btn" class="btn primary-btn">Start Test</button>
+                    <button id="reset-btn" class="btn secondary-btn">Reset</button>
+                    <select id="difficulty" class="select-dropdown">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                            <option value="literature">Classic Literature</option>
+                        </select>
+                    </select>
+                    <select id="time-select" class="select-dropdown">
+                        <option value="30">30 seconds</option>
+                        <option value="60" selected>60 seconds</option>
+                        <option value="120">2 minutes</option>
+                        <option value="300">5 minutes</option>
+                    </select>
+                </div>
+            </div>
+            <div id="text-source" class="text-source"></div>
+
+            <div class="ai-assistant-container">
+                <div class="assistant-header">
+                    <h2>AI Assistant</h2>
+                    <button id="toggle-assistant" class="btn icon-btn"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="assistant-content">
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="message assistant">
+                            <div class="message-bubble">
+                                <p>Hi there! I'm your typing assistant. Need help improving your typing skills? Ask me anything!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="assistant-input">
+                        <input type="text" id="assistant-input-field" placeholder="Ask the AI assistant...">
+                        <button id="send-message" class="btn primary-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="result-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Test Results</h2>
+                    <button id="close-modal" class="btn icon-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <h3>WPM</h3>
+                            <span id="result-wpm">0</span>
+                        </div>
+                        <div class="result-stat">
+                            <h3>Accuracy</h3>
+                            <span id="result-accuracy">100%</span>
+                        </div>
+                        <div class="result-stat">
+                            <h3>Time</h3>
+                            <span id="result-time">60s</span>
+                        </div>
+                    </div>
+                    <div class="analysis">
+                        <h3>Analysis</h3>
+                        <p id="result-analysis">Your typing speed is above average! Keep practicing to improve further.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="performance-chart"></canvas>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="try-again-btn" class="btn primary-btn">Try Again</button>
+                    <button id="share-btn" class="btn secondary-btn"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TypeMaster. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
